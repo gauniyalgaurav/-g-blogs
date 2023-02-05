@@ -1,0 +1,120 @@
+{%load static%}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital@1&display=swap" rel="stylesheet">
+<script>function search() {
+    var searchForm = document.getElementById("search");
+    if (searchForm.style.display === "none") {
+    searchForm.style.display = "block";
+    
+    } else {
+    searchForm.style.display = "none";
+    }
+    var searchButton = document.getElementsByTagName("button")[0];
+    searchButton.parentNode.replaceChild(searchForm, searchButton);
+    }
+    
+    </script>
+    <style>
+        div{
+            display: flex;
+            align-items: center;
+        }
+        *{
+    box-sizing:border-box;
+}
+header{
+    background-color:black;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin:0;
+    padding-top:100px;
+    padding-bottom: 100px;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-size: 60px;
+}
+header>h1{
+    color:white;
+
+font-weight: bold;
+text-align: center;
+}
+.all{
+padding-top:10px;
+padding-left:20px;
+padding-bottom: 10px;
+background-color: gray;
+display: flex;
+}
+.right{
+
+padding: 20px 0;
+}
+body{
+margin:0;
+padding:0;
+}
+.f{
+display: flex;
+align-items: center;
+background-color:black;
+color: white;
+padding:10px;
+position: absolute;
+bottom: 0;
+width: 100%;
+}
+
+
+</style>
+</head>
+<body>
+    <header><h1>G-blogs</h1></header>
+    <nav>
+    <div class="all">
+
+ <a href="{% url 'home' %}"><img src="/static/gb.png" height =50 ></a>&nbsp;&nbsp;&nbsp;
+ <div class="right">
+     <button onclick="search()" >Search</button>
+     <form id="search"  style="display: none;">
+     <input type="text" placeholder="search blogs">
+ </form>&nbsp;&nbsp;&nbsp;
+ <a href="{% url 'login' %}">Login/SignUp</a>&nbsp;&nbsp;&nbsp;
+ <a href="{ % url 'about' %}">About</a>&nbsp;&nbsp;&nbsp;
+
+
+ 
+ </div>
+ </div>
+
+</nav>
+<section style="padding:20px;font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;font-size: large;">
+Welcome to my website, created by myself for my 3rd semester mini project exam at Graphic Era Hill University. The purpose of this website is to provide a platform for users to create and share their own blogs.
+
+    Here, you can express yourself through the written word, share your thoughts and ideas, and connect with a community of like-minded individuals. Whether you're a seasoned blogger or new to the game, our user-friendly interface makes it easy to create and publish content.
+    
+    Our features include a simple and intuitive post editor, the ability to customize the appearance of your blog, and the option to include media such as images and videos. We also provide tools to help you promote your blog and reach a wider audience.
+    
+    We believe that everyone has something valuable to share, and our goal is to make it as easy as possible for you to do so. We hope you enjoy using our platform and look forward to reading your content.
+    
+    Thank you for choosing our website for creating blogs.<br>Development in progress...</section>
+    <footer>
+        <div class="f">
+            Developer:&nbsp;&nbsp;&nbsp;&nbsp;
+       
+            <img src="/static/gaurav.png" height="50">&nbsp;&nbsp;&nbsp;&nbsp; Contact: &nbsp;&nbsp;&nbsp;&nbsp;<a href ="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRlQQNTksTQdwbMZShNVhtWzPdcMPSzjjwkLpjcBJxpDggLWmTfqszddqPMRQDlGBPbghmG" alt="gaurav4gauniyal@gmail.com"  ><img src ="/static/gmail.png" height="30"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/gaurav.gauniyal/"><img src="/static/insta.png" height="30"></a> </div>
+        
+    
+</body>
+</html>

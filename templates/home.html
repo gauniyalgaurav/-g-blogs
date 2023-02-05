@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-blogs | Home</title>
+    {% load static %}
+    <link rel="stylesheet" href="/static/home.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital@1&display=swap" rel="stylesheet">
+<script>function search() {
+    var searchForm = document.getElementById("search");
+    if (searchForm.style.display === "none") {
+    searchForm.style.display = "block";
+    
+    } else {
+    searchForm.style.display = "none";
+    }
+    var searchButton = document.getElementsByTagName("button")[0];
+    searchButton.parentNode.replaceChild(searchForm, searchButton);
+    }
+    
+    </script>
+<style>
+    .f{
+        display: flex;
+            align-items: center;
+            background-color:black;
+            color: white;
+            padding:10px
+    }
+</style>
+</head>
+<body>
+   <header><h1>G-blogs</h1></header>
+   <nav>
+   <div class="all">
+    
+    <a href="{% url 'home' %}"><img src="{% static 'gb.png' %}" height =50 ></a>&nbsp;&nbsp;&nbsp;
+    <div class="right">
+        <button onclick="search()" >Search</button>
+        <form id="search"  style="display: none;">
+        <input type="text" placeholder="search blogs" style="width:min-content">
+    </form>&nbsp;&nbsp;&nbsp;
+    {% if user.is_authenticated %}
+    <a href="logout">Logout</a>&nbsp;&nbsp;&nbsp;
+   
+    {% else %}
+    <a href="{% url 'login' %}">Login/SignUp</a>&nbsp;&nbsp;&nbsp;
+    {% endif %}
+    <a href="{% url 'about' %}">About</a>&nbsp;&nbsp;&nbsp;
+
+   
+    
+</div>
+</div>
+
+   </nav>
+   <main>
+    <section>
+<article style="padding:100px 0 100px 100px"><span style="font-size:120px;">G-blogs: Write<br>    your <i>blogs</i> here</span><br>
+    <p style="margin:20px 0 0;">Create your blogs with this free platform.</p></article>
+    <article class="art" style="background-image: url('/static/bg.jpg')">
+        <p class="head" >
+            Dream Big,<br>
+            Build Big<br></p>
+            <p style="text-align: center;" style="font-family:sans-serif">Write up your interests,businesss anything else<br>
+            Your story, your journey, what you are,<br>where you belong...</p>
+        
+    </article>
+    <article class="last">Get Started<br>
+        <p>Start writing your blogs now<br><br><br>
+        <a href="/login.html" style="color:white" >Create</a></p>
+    </article>
+</section>
+
+   </main>
+   <footer>
+    <div class="f" >
+        Developer:&nbsp;&nbsp;&nbsp;&nbsp;
+   
+        <img src="/static/gaurav.png" height="50">&nbsp;&nbsp;&nbsp;&nbsp; Contact: &nbsp;&nbsp;&nbsp;&nbsp;<a href ="https://mail.google.com/mail/u/0/#inbox?compose=DmwnWrRlQQNTksTQdwbMZShNVhtWzPdcMPSzjjwkLpjcBJxpDggLWmTfqszddqPMRQDlGBPbghmG" alt="gaurav4gauniyal@gmail.com"  ><img src ="/static/gmail.png" height="30"></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.instagram.com/gaurav.gauniyal/"><img src="/static/insta.png" height="30"></a> </div>
+    
+</body>
+
+</html>  

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-blogs | log in or sign up</title>
+    <link rel="stylesheet" href="/static/login.css">
+    <script>
+        // Get the form element
+        let form = document.getElementById("sign");
+    
+        // Add a submit event listener to the form
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // prevent form from submitting
+    
+            let firstName = form.elements[0].value; // get the value of the first name input
+            let surname = form.elements[1].value; // get the value of the surname input
+            let mobileOrEmail = form.elements[2].value; // get the value of the mobile or email input
+            let password = form.elements[3].value; // get the value of the password input
+            let gender = ""; // variable to store the selected gender
+    
+            // Get all the radio buttons
+            let radios = document.getElementsByName("Gender");
+    
+            // Loop through the radio buttons to find the selected one
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    gender = radios[i].value;
+                    break;
+                }
+            }
+    
+            // Check if all fields are filled
+            if (firstName == "" || surname == "" || mobileOrEmail == "" || password == "") {
+                alert("Please fill out all the fields!");
+                return;
+            }
+    
+            // Check if the mobile or email input matches the correct pattern
+            let mobileOrEmailRegex = /^[0-9]{3}-[0-9]{3}-[0-9]{4}$|^[a-zA-Z0-9.-%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2}$/;
+            if (!mobileOrEmailRegex.test(mobileOrEmail)) {
+                alert("Please enter a valid mobile number or email address!");
+                return;
+            }
+    
+            // Check if a gender is selected
+            if (gender == "") {
+                alert("Please select a gender!");
+                return;
+            }
+    
+            // If all validation checks pass, submit the form
+            alert("Form submitted successfully!");
+            form.submit();
+        });
+    </script>
+</head>
+<body  style=" background-image: url('/static/bgl.jpg');">
+    
+<div class="box">
+    <div  class="boxa" style="padding:200px 0 100px 100px"><span style="font-size:70px;">G-blogs: Write<br>    your <i>blogs</i> here</span><br>
+        <p style="margin:20px 0 0;">Create your blogs with this free platform.</p></div>
+    <div class="all">
+        {% for message in messages%}
+        <h3>{{message}}</h3>
+        {% endfor %}
+
+        <form id="sign" action="sign" method="POST">
+            {% csrf_token %}
+        <input type="text" placeholder="Username" name="username">
+        <input type="text" placeholder="Mobile number or email address" name ="email" pattern="^[0-9]{3}-[0-9]{3}-[0-9]{4}$|^[a-zA-Z0-9.-%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2}$" required><br>
+        <input type="password" name="password" placeholder="Password">
+        <br>
+        
+        <input type="Submit" value="Sign up" class="sign" style="margin-top:15px"><br>
+        </form>
+        
+   
+    </div>
+    
+</div>
+</body>
+</html>
